@@ -2,7 +2,7 @@
 
 # nginx-upsync
 
-![Docker Image for Nginx Upsync](https://img.shields.io/docker/cloud/build/vitovan/nginx-upsync)
+[![Docker Image for Nginx Upsync](https://img.shields.io/docker/cloud/build/vitovan/nginx-upsync)](https://hub.docker.com/r/vitovan/nginx-upsync)
 
 Docker Image for [Nginx Upsync](https://hub.docker.com/r/vitovan/nginx-upsync)
 
