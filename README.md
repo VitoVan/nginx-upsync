@@ -2,9 +2,16 @@
 
 # nginx-upsync
 
-Docker Image for nginx-upsync-module and nginx-stream-upsync-module
+Docker Image for [Nginx Upsync](https://hub.docker.com/r/vitovan/nginx-upsync)
 
-This image enabled two more modules beyond [Nginx Offical Mainline Alpine Image](https://github.com/nginxinc/docker-nginx/blob/a973c221f6cedede4dab3ab36d18240c4d3e3d74/mainline/alpine/Dockerfile):
+Current Version: 
+
+- Nginx: [1.17.6](https://github.com/nginxinc/docker-nginx/blob/1.17.6/mainline/alpine/Dockerfile)
+- nginx-upsync-module: [v2.1.1](https://github.com/weibocom/nginx-upsync-module/tree/v2.1.1)
+- nginx-stream-upsync-module: [v1.2.1](https://github.com/xiaokai-wang/nginx-stream-upsync-module/tree/v1.2.1)
+
+
+This image enabled two more [modules](https://www.nginx.com/resources/wiki/modules/) beyond [Nginx Offical Mainline Alpine Image](https://github.com/nginxinc/docker-nginx/blob/1.17.6/mainline/alpine/Dockerfile):
 
 - [nginx-upsync-module](https://github.com/weibocom/nginx-upsync-module)
 
@@ -12,11 +19,11 @@ This image enabled two more modules beyond [Nginx Offical Mainline Alpine Image]
 
 ## How to use
 
-> Demostration only, for more useage, please refer to the module repo(s).
+> Demostration only, for more info please refer to the module repo(s).
 
 1. Prepare nginx-upsync.conf
 
-    File: `nginx-demo.conf`
+    File: `nginx-upsync.conf`
 
     ```nginx
     events { }
@@ -45,6 +52,8 @@ This image enabled two more modules beyond [Nginx Offical Mainline Alpine Image]
 
     File: `nginx-demo.conf`
 
+    > Bootstrap purpose only, you should replace it with your real server config
+    
     ```nginx
     server 127.0.0.1:9527 weight=1 max_fails=1 fail_timeout=1s;
     ```
@@ -52,7 +61,7 @@ This image enabled two more modules beyond [Nginx Offical Mainline Alpine Image]
 3. Run
 
     ```bash
-    docker run -d --net dc-a --name nginx \
+    docker run -d --name nginx-upsync \
        -v `pwd`/nginx-upsync.conf:/etc/nginx/nginx.conf \
        -v `pwd`/nginx-demo.conf:/etc/nginx/conf.d/demo.conf \
        -p 9000:80 \
